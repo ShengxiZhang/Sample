@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+<body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#one").click(function(){
+            $("#mycontent").toggle();
+        });
+        $("#two").click(function(){
+           var content = $("#mycontent").html();
+           content = "hello" + content;
+           $("#mycontent").html(content);
+        });
+        $("#home").click(function(){
+           $("#mycontent").attr("data-role", "content");
+           $("#mycontent").attr("class", "ui-content");
+           $("#mycontent").html($("#homepage").html());
+        });
+        $("#classes").click(function(){
+           $("#mycontent").attr("data-role", "listview");
+           $("#mycontent").attr("class", "ui-listview ui-listview-inset ui-corner-all ui-shadow");
+           $("#mycontent").html($("#classespage").html());
+        });
+        $("#myclasses").click(function(){
+           $("#mycontent").attr("data-role", "listview");
+           $("#mycontent").attr("class", "ui-listview ui-listview-inset ui-corner-all ui-shadow");
+           $("#mycontent").html($("#myclassespage").html());
+        });
+        $("#profile").click(function(){
+           $("#mycontent").attr("data-role", "content");
+           $("#mycontent").attr("class", "ui-content");
+           $("#mycontent").html($("#profilepage").html());
+        });
+});
+</script>
+
+<div data-role="page">
+  <div data-role="header">
+    <h1>Training Project</h1>
+  </div>
+  <div data-role="content" id="mycontent">
+		<div class="ui-content">
+			<h1>Wecome to training project.</h1>
+		</div>
+  </div>
+  <div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+			    <li><a href="#" data-theme="a" data-ajax="false" id="home">Home</a></li>
+			    <li><a href="#" data-theme="a" data-ajax="false" id="classes">Classes</a></li>
+                <li><a href="#" data-theme="a" data-ajax="false" id="myclasses">My Classes</a></li>
+                <li><a href="#" data-theme="a" data-ajax="false" id="profile">Profile</a></li>
+			</ul>
+		</div>
+  </div>
+</div> 
+<div data-role="page" id="homepage">
+  <div data-role="content" id="mycontent">
+		<div class="ui-content">
+			<h1>This is home page.</h1>
+		</div>
+  </div>
+</div> 
+<div data-role="page" id="classespage">
+    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+		<volist name="news_list" id="vo">	
+			<li class="ui-li-static ui-body-inherit">
+				<a href="#">{$vo['subject']}</a>
+			</li>
+		</volist>
+	</ul>
+</div>
+<div data-role="page" id="myclassespage">
+    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+        <li class="ui-li-static ui-body-inherit ui-first-child">My Class 1</li>
+        <li class="ui-li-static ui-body-inherit">My Class 2</li>
+        <li class="ui-li-static ui-body-inherit">My Class 3</li>
+        <li class="ui-li-static ui-body-inherit">My Class 4</li>
+        <li class="ui-li-static ui-body-inherit">My Class 5</li>
+    </ul>
+</div> 
+<div data-role="page" id="profilepage">
+  <div data-role="content" id="mycontent">
+		<div class="ui-content">
+			<h1>Profile of the traing project.</h1>
+		</div>
+  </div>
+</div> 
+</body>
+</html>
